@@ -151,7 +151,7 @@ if(reactLocalStorage.get('id_token') == null || reactLocalStorage.get('id_token'
                                                   'PENDING',
                                                   'CANCELLED',
                                                   'CONFIRMED',
-                                                  'PAY_FAILED',                                              
+                                                  'PAY_FAILED'                                              
                                                 ]);
 
   const isAllSelected =
