@@ -205,7 +205,7 @@ if(reactLocalStorage.get('id_token') == null || reactLocalStorage.get('id_token'
  ////////////////////////////////// get the order lists START ////////////////////////
 
   //sorting data selected
-  const [sortBy, setSortBy] = useState('placedDate');
+  const [sortBy, setSortBy] = useState('deliveryInfo.slotStart');
 
   const handleSortBy = (event) => {
     setSortBy(event.target.value);
@@ -314,8 +314,9 @@ if(reactLocalStorage.get('id_token') == null || reactLocalStorage.get('id_token'
                     onChange={handleSortBy}
                     input={<BootstrapInput />}
                   >
+                                        <option value='deliveryInfo.slotStart' >Delivery Date</option>
+
                     <option value='placedDate' selected>Order Date</option>
-                    <option value='deliveryInfo.slotStart' >Delivery Date</option>
                   </NativeSelect>
                 </FormControl>
             </div>
