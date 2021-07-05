@@ -285,7 +285,6 @@ if(reactLocalStorage.get('id_token') == null || reactLocalStorage.get('id_token'
   }
 
 
-  console.log("dataHolder: ",dataHolder);
 
 
   return (
