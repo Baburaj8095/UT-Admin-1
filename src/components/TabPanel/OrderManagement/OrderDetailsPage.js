@@ -145,7 +145,7 @@ const [OrderStatus, setOrderStatus] = useState({
 
 
   //timeline
-  const dropDownstatuses = ['CREATED', 'PROCESSING', 'CONFIRMED', 'COMPLETED','PENDING', 'CANCELLED'];
+  const dropDownstatuses = ['CREATED', 'PROCESSING', 'CONFIRMED', 'COMPLETED','PENDING', 'CANCELLED','PAY_FAILED'];
   const statuses = ['CREATED', 'PROCESSING', 'CONFIRMED', 'COMPLETED'];  
 
 const [activeStep, setActiveStep] = useState(0);

@@ -215,9 +215,7 @@ if(reactLocalStorage.get('id_token') == null || reactLocalStorage.get('id_token'
   const [isLoading, setisLoading] = useState(true);
 
   const [orders, setOrders] = useState([]);
-
-//http://localhost:8999/api/orders/?page=0&placedDate.specified=true&placedDate.greaterThanOrEqual=2020-12-09T00:00:00.000Z&placedDate.lessThanOrEqual=2021-01-04T23:59:59.000Z&size=500&sort=deliveryInfo.slotStart,desc&status.in=CREATED,PROCESSING,DISPATCHED,COMPLETED,PENDING,CANCELLED,CONFIRMED,PAY_FAILED  //url:"/orders/?page=0&placedDate.specified=true&placedDate.greaterThanOrEqual="+startdate+"&placedDate.lessThanOrEqual="+enddate+"&size=20&sort="+sorts+",desc&status.in="+year+"",
-     
+    
   const api = "/orders/details/?placedDate.specified=true&placedDate.greaterThanOrEqual="+startDate+"&placedDate.lessThanOrEqual="+endDate+"&sort="+sortBy+",desc&status.in="+selected.join(',')+"";
   const token = reactLocalStorage.get('id_token');
   const jwtToken ='Bearer '+token;

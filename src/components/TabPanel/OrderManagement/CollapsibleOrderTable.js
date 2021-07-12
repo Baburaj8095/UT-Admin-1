@@ -80,7 +80,7 @@ const CollapsibleOrderTable = (props)=> {
         <TableHead>
           <TableRow style={{backgroundColor:'#E6E6FA', textAlign:'center'}}>
             <TableCell style={{fontSize:'17px'}}>Order ID</TableCell>
-            <TableCell style={{fontSize:'17px'}} component="th">Order Date</TableCell>
+            <TableCell style={{fontSize:'17px'}} component="th">Date</TableCell>
             <TableCell style={{fontSize:'17px'}} component="th">Status</TableCell>
             <TableCell style={{fontSize:'17px'}} component="th">Customer Name</TableCell>
             <TableCell style={{fontSize:'17px'}} component="th">Delivery Slot</TableCell>

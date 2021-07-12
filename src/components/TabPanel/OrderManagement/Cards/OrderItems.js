@@ -6,6 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { reactLocalStorage } from 'reactjs-localstorage';
+import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,13 +41,48 @@ const useStyles = makeStyles((theme) => ({
   }));
   
 
+  const token = reactLocalStorage.get('id_token');
+const jwtToken ='Bearer '+token;
+const headerObject = {
+    'Authorization': jwtToken,
+    'Accept' : '*/*',
+    'Content-Type': 'application/json',
+    'App-Token' : 'A14BC'
+  }
 
+
+
+  const updateTime = (event) => {
+
+  
+    const apiToUpdate = "/orders/status";
+   
+    const statusUpdate = {
+                           id: event,
+                           status: "CONFIRMED",
+                         }
+       axios.put(apiToUpdate,
+               statusUpdate,
+               {headers: headerObject} 
+               )
+               .then(response=>{
+                 console.log("staus updated: ",response)     
+   
+                     }
+                 )    
+     
+   
+   
+     }
 
 const OrderItems = (props) => {
 
     const OrderItems = props.OrderItem;
 
     const classes = useStyles();   
+
+
+   
 
     return (
         <div style={{marginLeft:'10px'}}>                                  
@@ -61,6 +98,16 @@ const OrderItems = (props) => {
 
 <Card className={classes.root}>
       <CardActionArea style={{    position: 'initial'}}>
+      <CardActions >
+        <Button   style={{    position: 'initial'}}>
+        Delivery Time : {res.deliveryDate}
+        </Button>
+        <Button variant="contained" id={res.product} onClick={() => updateTime(res.product.id)}  color="primary" style={{    position: 'initial',backgroundColor:'rgb(90, 188, 15)',color:'white'}}>
+        Update Delivery Time
+        </Button>
+
+      </CardActions>
+          
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
@@ -74,9 +121,7 @@ const OrderItems = (props) => {
           <Typography variant="body2" color="textSecondary" component="p">
          Unit Name : {res.unitName}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-         Delivery Date : {res.deliveryDate}
-          </Typography>
+         
         </CardContent>
       </CardActionArea>
       <CardActions >
